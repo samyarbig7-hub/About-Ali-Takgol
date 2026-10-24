@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <meta name="description" content="About Ali Takgol؛ وب‌سایت هواداری علی تکگل و فضای کشف پروژه‌های متن‌باز.">
+  <title>About Ali Takgol</title>
+
+  <style>
+    :root {
+      --bg: #080d1b;
+      --text: #f5f7ff;
+      --muted: #bac5dc;
+      --glass: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.17);
+      --blue: #8bc5ff;
+      --purple: #b9a3ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+      background:
+        radial-gradient(ellipse at 10% 5%, #365bb855, transparent 35rem),
+        radial-gradient(ellipse at 90% 35%, #7653b733, transparent 32rem),
+        linear-gradient(145deg, #080d1b, #111a32 55%, #080d1b);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .glass {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.14),
+        rgba(255, 255, 255, 0.045)
+      );
+      border: 1px solid var(--border);
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(24px) saturate(150%);
+      -webkit-backdrop-filter: blur(24px) saturate(150%);
+    }
+
+    /* Navigation */
+
+    .navigation {
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      margin-top: 12px;
+      padding: 12px 18px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      color: #11182a;
+      font-weight: 900;
+      background: linear-gradient(135deg, #b8dcff, #9980ff);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      color: #dbe4f8;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-button {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 440px;
+      margin-top: 24px;
+      padding: clamp(25px, 6vw, 65px);
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 11, 25, 0.93),
+          rgba(5, 11, 25, 0.63)
+        ),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=85")
+        center / cover;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 650px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.12;
+      margin: 22px 0 15px;
+      letter-spacing: -1px;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(90deg, #fff, #a9d5ff, #c1aaff);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero p {
+      color: #e0e8f8;
+      font-size: 17px;
+      line-height: 2;
+      max-width: 570px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary {
+      background: linear-gradient(120deg, #78bdff, #a38aff);
+      color: #10162a;
+      border: 0;
+      font-weight: 800;
+    }
+
+    .secondary {
+      background: rgba(255, 255, 255, 0.09);
+      color: white;
+    }
+
+    .disclaimer {
+      font-size: 12px !important;
+      color: #bdc9df !important;
+      margin-top: 18px;
+    }
+
+    /* Sections */
+
+    section {
+      scroll-margin-top: 100px;
+    }
+
+    .section {
+      padding-top: 48px;
+    }
+
+    .section-heading {
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 4vw, 32px);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stats {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 22px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 5px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .two-columns {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .panel {
+      padding: 22px;
+      border-radius: 25px;
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    /* Video cards */
+
+    .video-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-card {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .thumbnail {
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #23426f, #171a38, #473875);
+    }
+
+    .play {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      color: #17213a;
+      font-size: 19px;
+    }
+
+    .video-info {
+      padding: 14px;
+    }
+
+    .video-info p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* News */
+
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .news-item:last-child {
+      border-bottom: 0;
+    }
+
+    .news-item p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Community */
+
+    .community {
+      padding: 28px;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .community p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* GitHub */
+
+    .github-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .github-card {
+      padding: 22px;
+      border-radius: 22px;
+    }
+
+    .github-card .icon {
+      font-size: 28px;
+    }
+
+    .github-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .github-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .search-form input {
+      min-width: 0;
+      flex: 1;
+      padding: 12px;
+      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: none;
+    }
+
+    .search-form input:focus {
+      border-color: var(--blue);
+    }
+
+    .search-message {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+
+    footer {
+      margin-top: 55px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.13);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 10px;
+        font-size: 12px;
+      }
+
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .github-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navigation {
+        padding: 10px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding: 8px 0;
+      }
+
+      .hero {
+        min-height: 470px;
+        padding: 24px 20px;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .stats,
+      .github-grid,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 17px;
+      }
+
+      .community {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .search-form {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <nav class="navigation glass">
+      <a class="brand" href="#home">
+        <span class="logo">A</span>
+        <span>About Ali Takgol</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">خانه</a>
+        <a href="#videos">ویدیوها</a>
+        <a href="#news">تازه‌ها</a>
+        <a href="#community">هواداران</a>
+        <a href="#github">GitHub</a>
+      </div>
+
+      <button class="nav-button" id="themeButton" type="button">
+        ☼ تم
+      </button>
+    </nav>
+
+    <main>
+      <section class="hero glass" id="home">
+        <div class="hero-content">
+          <span class="badge">✦ فضای هواداری مستقل</span>
+
+          <h1>
+            دنیای<br>
+            <span class="gradient-text">Ali Takgol</span>
+          </h1>
+
+          <p>
+            ویدیوها، خبرها و محتوای منتخب علی تکگل را در یک جا دنبال کن؛
+            همچنین پروژه‌های جالب متن‌باز را در بخش GitHub کشف کن.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#videos">
+              ▶ دیدن ویدیوها
+            </a>
+
+            <a class="btn secondary" href="#community">
+              ✦ جامعه هواداران
+            </a>
+          </div>
+
+          <p class="disclaimer">
+            این وب‌سایت هواداری مستقل است و ادعای وابستگی رسمی به علی تکگل ندارد.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid stats" aria-label="بخش‌های سایت">
+        <div class="stat glass">
+          <strong>▶ ویدیوها</strong>
+          <span>ویدیوهای منتخب و لینک به منابع اصلی</span>
+        </div>
+
+        <div class="stat glass">
+          <strong>✦ جامعه هواداران</strong>
+          <span>مشارکت و پیشنهاد محتوا</span>
+        </div>
+
+        <div class="stat glass">
+          <strong>⌘ کشف GitHub</strong>
+          <span>ابزارها و پروژه‌های متن‌باز</span>
+        </div>
+      </section>
+
+      <section class="section grid two-columns">
+        <div class="panel glass" id="videos">
+          <div class="section-heading">
+            <h2>ویدیوهای منتخب</h2>
+            <p>عنوان و لینک ویدیوهای واقعی را جایگزین نمونه‌ها کن.</p>
+          </div>
+
+          <div class="grid video-grid">
+            <a class="video-card" href="https://www.youtube.com/" target="_blank" rel="noopener">
+              <div class="thumbnail">
+                <span class="play">▶</span>
+              </div>
+
+              <div class="video-info">
+                <strong>ویدیوی منتخب شماره یک</strong>
+                <p>برای مشاهده، لینک واقعی ویدیو را جایگزین کن.</p>
+              </div>
+            </a>
+
+            <a class="video-card" href="https://www.youtube.com/@alitakgol2" target="_blank" rel="noopener">
+              <div class="thumbnail">
+                <span class="play">▶</span>
+              </div>
+
+              <div class="video-info">
+                <strong>ویدیوی منتخب شماره دو</strong>
+                <p>برای مشاهده، لینک واقعی ویدیو را جایگزین کن.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="panel glass" id="news">
+          <div class="section-heading">
+            <h2>تازه‌ها</h2>
+            <p>خبرها را همراه با لینک منبع معتبر منتشر کن.</p>
+          </div>
+
+          <div class="news-item">
+            <strong>✧ تازه‌ترین مطالب</strong>
+            <p>عنوان خبر واقعی و لینک منبع را اینجا قرار بده.</p>
+          </div>
+
+          <div class="news-item">
+            <strong>◎ پیشنهادهای هواداران</strong>
+            <p>در نسخه بعدی می‌توانیم فرم ارسال پیشنهاد محتوا بسازیم.</p>
+          </div>
+
+          <div class="news-item">
+            <strong>⌘ پروژه‌های متن‌باز</strong>
+            <p>پروژه‌های جالب GitHub را در بخش پایین کشف کن.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="community">
+        <div class="community glass">
+          <div>
+            <h2>جامعه هواداران</h2>
+            <p>
+              فضایی محترمانه برای پیشنهاد ویدیو، اشتراک‌گذاری آثار هواداری
+              و گفتگو درباره محتوا.
+            </p>
+          </div>
+
+          <a class="btn secondary" href="mailto:YOUR_EMAIL@example.com">
+            پیشنهاد محتوا ↗
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="github">
+        <div class="section-heading">
+          <h2>GitHub Discovery</h2>
+          <p>
+            پروژه‌های متن‌باز را کشف کن؛ این بخش در نسخه فعلی از جست‌وجوی GitHub استفاده می‌کند.
+          </p>
+        </div>
+
+        <div class="grid github-grid">
+          <article class="github-card glass">
+            <span class="icon">🔥</span>
+            <h3>GitHub Trending</h3>
+            <p>
+              پروژه‌های محبوب و درحال‌رشد را دنبال کن.
+              اطلاعات زنده در نسخه فعلی هنوز متصل نشده است.
+            </p>
+            <a class="btn secondary" href="https://github.com/trending" target="_blank" rel="noopener">
+              مشاهده Trending ↗
+            </a>
+          </article>
+
+          <article class="github-card glass">
+            <span class="icon">🌍</span>
+            <h3>Project Discovery</h3>
+            <p>
+              پروژه‌های متن‌باز را در موضوعاتی مانند هوش مصنوعی،
+              اندروید، توسعه وب و ابزارهای برنامه‌نویسی پیدا کن.
+            </p>
+            <a class="btn secondary" href="https://github.com/explore" target="_blank" rel="noopener">
+              کشف پروژه‌ها ↗
+            </a>
+          </article>
+
+          <article class="github-card glass">
+            <span class="icon">⌕</span>
+            <h3>GitHub Super Search</h3>
+            <p>نام پروژه یا موضوع موردنظرت را وارد کن.</p>
+
+            <form class="search-form" id="githubSearch">
+              <input
+                type="search"
+                id="searchQuery"
+                placeholder="مثلاً Python یا Android"
+                aria-label="جست‌وجوی پروژه‌های GitHub"
+                required
+              >
+
+              <button class="btn primary" type="submit">
+                جست‌وجو
+              </button>
+            </form>
+
+            <div class="search-message" id="searchMessage" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <strong>About Ali Takgol</strong><br>
+      وب‌سایت هواداری مستقل<br>
+      © <span id="year"></span> About Ali Takgol
+    </footer>
+  </div>
+
+  <script>
+    // نمایش سال جاری
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // تغییر ظاهر روشن و تیره
+    document.getElementById("themeButton").addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+
+      const enabled =
+        document.body.classList.contains("light-mode");
+
+      document.getElementById("themeButton").textContent =
+        enabled ? "☾ تم" : "☼ تم";
+    });
+
+    // جست‌وجوی مخزن‌ها در GitHub
+    document.getElementById("githubSearch").addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const query =
+        document.getElementById("searchQuery").value.trim();
+
+      if (!query) return;
+
+      const url =
+        "https://github.com/search?q=" +
+        encodeURIComponent(query) +
+        "&type=repositories";
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+  </script>
+
+  <style>
+    /* رنگ‌های حالت روشن */
+    body.light-mode {
+      color: #17213a;
+      background:
+        radial-gradient(ellipse at 10% 5%, #d4e5ff, transparent 35rem),
+        linear-gradient(145deg, #edf3ff, #e4eaff);
+    }
+
+    body.light-mode .glass {
+      background: rgba(255, 255, 255, 0.58);
+      border-color: rgba(40, 60, 100, 0.15);
+    }
+
+    body.light-mode .nav-links,
+    body.light-mode .nav-button {
+      color: #17213a;
+    }
+
+    body.light-mode .section-heading p,
+    body.light-mode .stat span,
+    body.light-mode .video-info p,
+    body.light-mode .news-item p,
+    body.light-mode .community p,
+    body.light-mode .github-card p,
+    body.light-mode footer {
+      color: #53617b;
+    }
+
+    body.light-mode .search-form input {
+      color: #17213a;
+      background: rgba(255, 255, 255, 0.65);
+    }
+  </style>
+
+</body>
+  </html>
